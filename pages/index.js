@@ -1,67 +1,72 @@
 import Head from "next/head";
 
 export default function Home() {
-  return <TailWindDemo />;
   // return (
-  //   <div className={styles.container}>
-  //     <Head>
-  //       <title>Create Next App</title>
-  //       <link rel="icon" href="/favicon.ico" />
-  //     </Head>
-
-  //     <main className={styles.main}>
-  //       <h1 className={styles.title}>
-  //         Welcome to <a href="https://nextjs.org">Next.js!</a>
+  //   <div class="container mx-auto flex px-5 items-center justify-center flex-col">
+  //     <div class="text-center lg:w-2/3 w-full">
+  //       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+  //         Microdosing synth tattooed vexillologist
   //       </h1>
-
-  //       <p className={styles.description}>
-  //         Get started by editing{" "}
-  //         <code className={styles.code}>pages/index.js</code>
+  //       <p class="mb-8 leading-relaxed">
+  //         Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing
+  //         tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt
+  //         ramps hexagon mustache umami snackwave tilde chillwave ugh. Pour-over
+  //         meditation PBR&amp;B pickled ennui celiac mlkshk freegan photo booth
+  //         af fingerstache pitchfork.
   //       </p>
-
-  //       <div className={styles.grid}>
-  //         <a href="https://nextjs.org/docs" className={styles.card}>
-  //           <h3>Documentation &rarr;</h3>
-  //           <p>Find in-depth information about Next.js features and API.</p>
-  //         </a>
-
-  //         <a href="https://nextjs.org/learn" className={styles.card}>
-  //           <h3>Learn &rarr;</h3>
-  //           <p>Learn about Next.js in an interactive course with quizzes!</p>
-  //         </a>
-
-  //         <a
-  //           href="https://github.com/vercel/next.js/tree/master/examples"
-  //           className={styles.card}
-  //         >
-  //           <h3>Examples &rarr;</h3>
-  //           <p>Discover and deploy boilerplate example Next.js projects.</p>
-  //         </a>
-
-  //         <a
-  //           href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-  //           className={styles.card}
-  //         >
-  //           <h3>Deploy &rarr;</h3>
-  //           <p>
-  //             Instantly deploy your Next.js site to a public URL with Vercel.
-  //           </p>
-  //         </a>
+  //       <div class="flex justify-center">
+  //         <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+  //           Button
+  //         </button>
+  //         <button class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">
+  //           Button
+  //         </button>
   //       </div>
-  //     </main>
-
-  //     <footer className={styles.footer}>
-  //       <a
-  //         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Powered by{" "}
-  //         <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-  //       </a>
-  //     </footer>
+  //     </div>
   //   </div>
   // );
+  return (
+    <>
+      <div class="relative flex items-center bg-gray-200 h-screen w-screen bg-gray-700">
+        <div class="flex-1 content-center items-center">
+          <span class="text-3xl font-bold text-center text-white">
+            <p>Hi, I'm Wasin</p>
+            <p>Mobile Developer</p>
+          </span>
+          <div class="py-2" />
+          <div class="flex justify-center">
+            <button
+              class="
+                transition 
+                duration-500 
+                ease-in-out 
+                py-2 px-4
+                border 
+                border-blue-500
+                rounded-full
+                text-white                
+                bg-transparent
+                transform 
+                hover:text-white 
+                hover:bg-blue-600 
+                hover:-translate-x-1 
+                hover:scale-110 
+                "
+            >
+              YES, I'M AVALIBLE FOR HIRE
+            </button>
+          </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-screen">
+          <div>Learn more about what I do</div>
+        </div>
+      </div>
+
+      <div class="bg-gray-400 h-screen">
+        <p class="text-5xl ...">The quick brown fox ...</p>
+      </div>
+    </>
+  );
 }
 
 const TailWindDemo = () => {
