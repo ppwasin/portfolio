@@ -7,9 +7,11 @@ module.exports = {
         // => @media print { ... }
       },
       spacing: {
-        '25mm': "25mm",
-        '5mm': "5mm"
-
+        "25mm": "25mm",
+        "5mm": "5mm",
+        a4: "15mm",
+        "a4-w": "21cm",
+        "a4-h": "29.65cm",
       },
     },
   },
