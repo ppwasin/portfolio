@@ -88,7 +88,7 @@ const A4 = (props) => {
   return (
     <div
       style={A4Style}
-      className="text-sm shadow-md my-0 mx-auto print:p-0 print:m-0 print:shadow-none"
+      className="text-sm shadow-md my-0 mx-auto p-25mm print:p-0 print:m-0 print:shadow-none"
     >
       {props.children}
     </div>
