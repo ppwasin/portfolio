@@ -9,12 +9,12 @@ function CV() {
         <div className="flex h-full">
           <div className="w-2/6 bg-blue-800 print:bg-white print:border-r-2 print:my-a4 print:border-blue-800 text-center py-a4">
             <div className="w-full flex justify-center">
-              <div class="rounded-full bg-gray-300 h-32 w-32 flex items-center justify-center">
+              <div className="rounded-full bg-gray-300 h-32 w-32 flex items-center justify-center">
                 Avatar
               </div>
             </div>
           </div>
-          <div class="w-4/6 bg-white py-a4">
+          <div className="w-4/6 bg-white py-a4">
             <div className="px-4">
               {/* Header */}
               <div className="text-4xl text-blue-900 flex">
@@ -42,7 +42,7 @@ function CV() {
                 {experiences.map((value, index) => {
                   return (
                     <Experience
-                      index={index}
+                      key={index}
                       exp={value}
                       isInit={R.equals(0, index)}
                       isLast={index === 3}
@@ -70,9 +70,9 @@ const A4 = (props) => {
 };
 
 //Compound component
-const Experience = ({ index, exp, isLast, isInit }) => {
+const Experience = ({ exp, isLast, isInit }) => {
   return (
-    <div key={index}>
+    <>
       <div className="flex">
         <TimelineLineStart isInit={isInit} isLast={isLast} />
         <TimelineContent>
@@ -101,7 +101,7 @@ const Experience = ({ index, exp, isLast, isInit }) => {
             <p>{exp.roleOverview}</p>
           </div>
           {/* Bullet */}
-          {/* <ul class="pl-4 list-disc">
+          {/* <ul className="pl-4 list-disc">
             {exp.roleBullets.map((value, index) => {
               return <li key={index}> {value}</li>;
             })}
@@ -114,7 +114,7 @@ const Experience = ({ index, exp, isLast, isInit }) => {
           <div className="h-5" />
         </TimelineContent>
       </div>
-    </div>
+    </>
   );
 };
 
