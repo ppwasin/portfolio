@@ -1,3 +1,7 @@
+import * as R from "rambda";
+import * as RExt from "utils/RamdaExt";
+import experiences from "data/experiences";
+
 function CV() {
   return (
     <div className="flex-col flex-1 w-full items-center justify-center bg-gray-300 print:bg-transparent py-5mm print:p-0">
@@ -29,97 +33,27 @@ function CV() {
                 automate CI/CD via Fastlane, Travis, Gitlab.
               </div>
               <div className="pt-12" />
-              {/* Work Experimence */}
+              {/* Experimence */}
               <div className="w-full">
-                <div className="text-xl font-bold text-blue-900">
-                  WORK EXPERIENCE
+                <div className="text-2xl font-bold text-blue-900">
+                  Experience
                 </div>
                 <hr className="border border-solid border-blue-900" />
-
-                <div className="flex">
-                  <TimelineLineStart />
-                  <TimelineContent>
-                    <div className="flex flex-no-wrap">
-                      <p>
-                        <strong> AB Development </strong> / Your Job Position
-                      </p>
-                    </div>
-                  </TimelineContent>
-                </div>
-                {/* At */}
-                <div className="flex">
-                  <TimelineLine />
-                  <TimelineContent>
-                    <div className="flex flex-no-wrap text-xs text-gray-600">
-                      <p>From 2019 up to now</p>
-                    </div>
-                  </TimelineContent>
-                </div>
-                {/* Description */}
-                <div className="flex">
-                  <TimelineLine />
-                  <TimelineContent>
-                    <div className="flex flex-no-wrap ">
-                      <p>
-                        Working as the devX team member at Gojek for developing
-                        and maintaining some core libraries and framework. At
-                        the same time research on how to improve developer
-                        experience in current code base.
-                      </p>
-                    </div>
-                    <ul class="pl-4 list-disc">
-                      <li>
-                        Takeover for planning, maintaining, and add more
-                        functionality to Config Provider module, the module for
-                        APIs unification of remote configurations sources.
-                      </li>
-                      <li>
-                        Maintain and develop CI script for automating task such
-                        as reporting the new release from Gitlab to slack,
-                        consume internal API for updating existing code base.
-                      </li>
-                      <li>
-                        Take part in refactoring launching module, the module
-                        that responsible for launching all product in Gojek.
-                      </li>
-                      <li>
-                        Depend on the requirement, may have opportunity to do on
-                        both Android and iOS to ensure feature parity between
-                        two platform (Android & iOS).
-                      </li>
-                    </ul>
-                  </TimelineContent>
-                </div>
+                {experiences.map((value, index) => {
+                  return (
+                    <Experience
+                      index={index}
+                      exp={value}
+                      isInit={R.equals(0, index)}
+                      isLast={index === 3}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
       </A4>
-      {/* <div className="text-4xl text-center text-blue-700">Name Surname</div>
-        <div className="text-4xl text-center text-gray-400">Role</div>
-        <div className="text-center">
-          I’m a software engineer with diverse experience in designing,
-          implementing and deploying software applications on various
-          programming languages. Have strong knowledge in Android development
-          tech stack, especially in functional reactive programming. Experience
-          in all common architectures in mobile tech-nology. Have good knowledge
-          to automate CI/CD via Fastlane, Travis, Gitlab.
-        </div>
-        <div></div>
-        <div className="flex items-center justify-center my-4">
-          <a href="#" className="no-underline text-blue-500">
-            email@gmail.com
-          </a>
-          <p className="mx-1">/</p>
-          <a href="#" className="no-underline text-blue-500">
-            (+66) xx xx xxxx
-          </a>
-          <p className="mx-1">/</p>
-          <a href="#" className="no-underline text-blue-500">
-            website
-          </a>
-        </div> */}
-      {/* </div> */}
       <A4>
         <p>Inside</p>
       </A4>
@@ -135,29 +69,80 @@ const A4 = (props) => {
   );
 };
 
-const Circle = () => (
-  <div
-    className="bg-blue-800 border-black"
-    style={{
-      height: "16px",
-      borderRadius: "50%",
-      "-moz-border-radius": "50%",
-      "-webkit-border-radius": "50%",
-      width: "16px",
-    }}
-  />
-);
+//Compound component
+const Experience = ({ index, exp, isLast, isInit }) => {
+  return (
+    <div key={index}>
+      <div className="flex">
+        <TimelineLineStart isInit={isInit} isLast={isLast} />
+        <TimelineContent>
+          <div className="flex flex-no-wrap">
+            <p>
+              <strong> {exp.company} </strong>
+              {R.compose(RExt.rChain(R.concat("/ ")), R.prop("roleApp"))(exp)}
+            </p>
+          </div>
+        </TimelineContent>
+      </div>
+      {/* At */}
+      <div className="flex">
+        <TimelineLine isLast={isLast} />
+        <TimelineContent>
+          <div className="flex flex-no-wrap text-xs text-gray-600">
+            <p>{exp.roleDuration + " - " + exp.roleName} </p>
+          </div>
+        </TimelineContent>
+      </div>
+      {/* Description */}
+      <div className="flex">
+        <TimelineLine isLast={isLast} />
+        <TimelineContent>
+          <div className="flex flex-no-wrap ">
+            <p>{exp.roleOverview}</p>
+          </div>
+          {/* Bullet */}
+          {/* <ul class="pl-4 list-disc">
+            {exp.roleBullets.map((value, index) => {
+              return <li key={index}> {value}</li>;
+            })}
+          </ul> */}
+        </TimelineContent>
+      </div>
+      <div className="flex">
+        <TimelineLine isLast={isLast} />
+        <TimelineContent>
+          <div className="h-5" />
+        </TimelineContent>
+      </div>
+    </div>
+  );
+};
 
-const TimelineLineStart = () => (
+//View
+const TimelineLineStart = ({ isInit, isLast }) => (
   <div className="w-4 flex flex-col items-center">
-    <div className="mt-1 rounded-full w-1 h-1 p-1 border-2 border-blue-800 bg-gray-300 " />
-    <div className="h-full border border-blue-800" />
+    {R.ifElse(
+      R.equals(true),
+      R.always(<div className="mt-1" />),
+      R.always(<div className="h-full border border-blue-800" />)
+    )(isInit)}
+    <div className="rounded-full w-1 h-1 p-1 border-2 border-blue-800 bg-gray-300 " />
+
+    {R.ifElse(
+      R.equals(true),
+      R.always(<div className="mt-1" />),
+      R.always(<div className="h-full border border-blue-800" />)
+    )(isLast)}
   </div>
 );
 
-const TimelineLine = () => (
+const TimelineLine = ({ isLast }) => (
   <div className="w-4 flex justify-center">
-    <div className="border border-blue-800" />
+    {R.ifElse(
+      R.equals(true),
+      R.always(),
+      R.always(<div className="border border-blue-800" />)
+    )(isLast)}
   </div>
 );
 
