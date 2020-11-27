@@ -1,51 +1,93 @@
-import * as R from "rambda";
+import * as R from "ramda";
 import * as RExt from "utils/RamdaExt";
 import experiences from "data/experiences";
+import contacts from "data/contacts";
+import skill from "data/skill";
 
 function CV() {
   return (
-    <div className="flex-col flex-1 w-full items-center justify-center bg-gray-300 print:bg-transparent py-5mm print:p-0">
+    <div className="flex-col flex-1 w-full items-center justify-center bg-secondaryLight print:bg-transparent py-5mm print:p-0">
       <A4>
         <div className="flex h-full">
-          <div className="w-2/6 bg-blue-800 print:bg-white print:border-r-2 print:my-a4 print:border-blue-800 text-center py-a4">
-            <div className="w-full flex justify-center">
-              <div className="rounded-full bg-gray-300 h-32 w-32 flex items-center justify-center">
-                Avatar
+          <div className="text-secondaryLight w-2/6 bg-primary print:bg-white print:border-r-2 print:my-a4 print:border-primary py-a4">
+            <div className="flex flex-col ">
+              <div className="flex items-center justify-center">
+                <div className="rounded-full bg-gray-300 h-32 w-32 flex items-center justify-center">
+                  Avatar
+                </div>
               </div>
+              {/* Contacts */}
+              <div className="mx-3 my-2">
+                <p className="">Email: {contacts.email}</p>
+                <p className="">Tel: {contacts.tel}</p>
+                <p className="">
+                  <a href={contacts.linkedin}>Linkedin: @Wasin</a>
+                </p>
+                <p className="">
+                  <a className="" href={contacts.twitter}>
+                    Twitter: @Mheevun
+                  </a>
+                </p>
+              </div>
+              {/* Skill */}
+
+              {skill.map((value, index) => {
+                return (
+                  <div key={index}>
+                    <div>{value.name}</div>
+                    <div className="ml-4">
+                      {R.compose(
+                        RExt.mapIndex((value, index) => {
+                          return <div key={index}>{value}</div>;
+                        }),
+                        R.defaultTo([]),
+                        R.prop("list")
+                      )(value)}
+                    </div>
+                    
+                    <div className="ml-4">
+                      {R.compose(
+                        RExt.mapIndex((value, index) => {
+                          return <div key={index}>{value.name}</div>;
+                        }),
+                        R.defaultTo([]),
+                        R.prop("sub")
+                      )(value)}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="w-4/6 bg-white py-a4">
             <div className="px-4">
               {/* Header */}
-              <div className="text-4xl text-blue-900 flex">
-                <p className="font-bold">Name Surname</p>
+              <div className="text-2xl text-primaryDark flex">
+                <p className="font-bold">Wasin Passornpakorn</p>
               </div>
-              <div className="text-xl text-gray-400 font-bold">
-                Progressional Title
+              <div className="text-xm text-secondary font-bold">
+                Android Developer
               </div>
-              <div className="pt-4" />
-              <div className="">
-                I’m a software engineer with diverse experience in devloping
-                software applications on various programming languages. Have
-                strong knowledge in Android development tech stack, especially
-                in functional reactive programming. Experience in all common
-                architectures in mobile technology. Have good knowledge to
-                automate CI/CD via Fastlane, Travis, Gitlab.
-              </div>
-              <div className="pt-12" />
+              I’m a software engineer with diverse experience in devloping
+              software applications on various programming languages. Have
+              strong knowledge in Android development tech stack, especially in
+              functional reactive programming. Experience in all common
+              architectures in mobile technology. Have good knowledge to
+              automate CI/CD via Fastlane, Travis, Gitlab.
+              <div className="pt-8" />
               {/* Experimence */}
               <div className="w-full">
-                <div className="text-2xl font-bold text-blue-900">
+                <div className="text-2xl font-bold text-primaryDark">
                   Experience
                 </div>
-                <hr className="border border-solid border-blue-900" />
+                <hr className="mb-2 border border-solid border-primaryLight" />
                 {experiences.map((value, index) => {
                   return (
                     <Experience
                       key={index}
                       exp={value}
                       isInit={R.equals(0, index)}
-                      isLast={index === 3}
+                      isLast={R.equals(R.length(experiences) - 1, index)}
                     />
                   );
                 })}
@@ -76,7 +118,7 @@ const Experience = ({ exp, isLast, isInit }) => {
       <div className="flex">
         <TimelineLineStart isInit={isInit} isLast={isLast} />
         <TimelineContent>
-          <div className="flex flex-no-wrap">
+          <div className="flex flex-no-wrap text-primaryDark">
             <p>
               <strong> {exp.company} </strong>
               {R.compose(RExt.rChain(R.concat("/ ")), R.prop("roleApp"))(exp)}
@@ -88,7 +130,7 @@ const Experience = ({ exp, isLast, isInit }) => {
       <div className="flex">
         <TimelineLine isLast={isLast} />
         <TimelineContent>
-          <div className="flex flex-no-wrap text-xs text-gray-600">
+          <div className="flex flex-no-wrap text-xs text-secondary">
             <p>{exp.roleDuration + " - " + exp.roleName} </p>
           </div>
         </TimelineContent>
@@ -101,11 +143,11 @@ const Experience = ({ exp, isLast, isInit }) => {
             <p>{exp.roleOverview}</p>
           </div>
           {/* Bullet */}
-          {/* <ul className="pl-4 list-disc">
+          <ul className="pl-4 list-disc">
             {exp.roleBullets.map((value, index) => {
               return <li key={index}> {value}</li>;
             })}
-          </ul> */}
+          </ul>
         </TimelineContent>
       </div>
       <div className="flex">
@@ -124,14 +166,14 @@ const TimelineLineStart = ({ isInit, isLast }) => (
     {R.ifElse(
       R.equals(true),
       R.always(<div className="mt-1" />),
-      R.always(<div className="h-full border border-blue-800" />)
+      R.always(<div className="h-full border border-primaryLight" />)
     )(isInit)}
-    <div className="rounded-full w-1 h-1 p-1 border-2 border-blue-800 bg-gray-300 " />
+    <div className="rounded-full w-1 h-1 p-1 border-2 border-white bg-primaryLight" />
 
     {R.ifElse(
       R.equals(true),
       R.always(<div className="mt-1" />),
-      R.always(<div className="h-full border border-blue-800" />)
+      R.always(<div className="h-full border border-primaryLight" />)
     )(isLast)}
   </div>
 );
@@ -141,7 +183,7 @@ const TimelineLine = ({ isLast }) => (
     {R.ifElse(
       R.equals(true),
       R.always(),
-      R.always(<div className="border border-blue-800" />)
+      R.always(<div className="border border-primaryLight" />)
     )(isLast)}
   </div>
 );

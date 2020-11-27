@@ -1,12 +1,12 @@
 const experiences = [
   {
     company: "Gojek",
-    roleName: "Mobile Engineer",
+    roleName: "Mobile Engineer (iOS)",
     roleDuration: "Mar 2020 up to now",
     roleOverview:
       "Working as the Develper Experience (devX) team member at Gojek for developing and maintaining some core libraries and framework. At the same time research on how to improve developer experience in current code base.",
     roleBullets: [
-      "Takeover for planning, maintaining, and add more functionality to Config Provider module, the module for APIs unification of remote configurations sources.",
+      "Takeover Config Provider module for planning, maintaining, and add more functionality. The module is the APIs unification and cache mechanism of all remote configurations sources in the Gojek App.",
       "Maintain and develop CI script for automating task such as reporting the new release from Gitlab to slack, consume internal API for updating existing code base.",
       "Take part in refactoring launching module, the module that responsible for launching all product in Gojek.",
       "Depend on the requirement, may have opportunity to do on both Android and iOS to ensure feature parity between two platform (Android & iOS).",
@@ -53,7 +53,7 @@ const experiences = [
     roleName: "Researcher and Android Developer",
     roleDuration: "Jan 2017 – Oct 2018",
     roleOverview:
-      "Develop android application for gathering health and device data from various Blue-tooth devices",
+      "Develop android application for gathering health and device data from various Bluetooth devices",
     roleBullets: [
       "Developed android service for gathering health data from Bluetooth devices in-cluding IEEE 11073 on classical Bluetooth, GATT profile on low-energy Bluetooth, and some peripheral devices via Bluetooth socket.",
       "Developed user interface for allowing user to manage Bluetooth connection, and data that gathering from Bluetooth device",

@@ -36,7 +36,7 @@ const skill = [
       },
     ],
     others: [
-      "Building modularization via pure kotlin, android library and dynamic feature module",
+      "Building modularization via pure Kotlin, android library and dynamic feature module",
       "Automate CI/CD via Fastlane, Travis, Gitlab, GitHub, GitHub Action",
     ],
   },
@@ -83,4 +83,4 @@ const skill = [
   },
 ];
 
-export default skill
+export default skill;
