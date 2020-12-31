@@ -4,7 +4,7 @@ const experiences = [
     roleName: "Mobile Engineer (iOS)",
     roleDuration: "Mar 2020 up to now",
     roleOverview:
-      "Working as the Develper Experience (devX) team member at Gojek for developing and maintaining some core libraries and framework. At the same time research on how to improve developer experience in current code base.",
+      "Working as the Developer Experience (devX) team member at Gojek for developing and maintaining some core libraries and framework. At the same time research on how to improve developer experience in current code base.",
     roleBullets: [
       "Takeover Config Provider module for planning, maintaining, and add more functionality. The module is the APIs unification and cache mechanism of all remote configurations sources in the Gojek App.",
       "Maintain and develop CI script for automating task such as reporting the new release from Gitlab to slack, consume internal API for updating existing code base.",
@@ -49,7 +49,7 @@ const experiences = [
   },
   {
     company: "Centre for Network Research at PSU (CNR)",
-    roleApp: "e-Health connect",
+    roleApp: "e-Health Connect",
     roleName: "Researcher and Android Developer",
     roleDuration: "Jan 2017 – Oct 2018",
     roleOverview:

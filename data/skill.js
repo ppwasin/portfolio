@@ -1,7 +1,7 @@
 const skill = [
   {
     name: "Programming Languages",
-    list: ["Android (Java & Kotlin)", "iOS (Swift5)", "JavaScript", "Python"],
+    list: ["Android (Java & Kotlin)", "iOS (Swift5)", "JavaScript"],
   },
   {
     name: "Android on Profession Career",
@@ -12,27 +12,29 @@ const skill = [
           "Dagger",
           "Retrofit",
           "RxJava",
-          "Coroutine and Flow",
-          "RxBinding",
+          "Coroutine & Flow",
           "Live Data",
           "Room",
+        ],
+      },
+      {
+        name: "Utilitis",
+        list: [
           "FCM",
-          "Jetpack navigation",
+          "Jetpack: Navigation Paging",
+          "RxBinding",
           "ArrowKt",
+          "Proximity beacon",
+          "Android Bluetooth",
         ],
       },
       {
         name: "Testing",
-        list: ["Espresso", "Mockito", "Mockk", "MockWebServer"],
+        list: ["Espresso", "Mockito", "Mockk", "Kotest", "MockWebServer"],
       },
       {
         name: "Patterns",
         list: ["MVVM", "MVP", "MVI", "Unidirectional Flow"],
-      },
-      {
-        name:
-          "SDK Main Components (Service / Content Provider/ Broadcast Recivers / Others)",
-        list: ["Work Manager", "Proximity beacon", "Android Bluetooth"],
       },
     ],
     others: [

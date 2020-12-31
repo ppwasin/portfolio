@@ -44,7 +44,7 @@ function CV() {
                         R.prop("list")
                       )(value)}
                     </div>
-                    
+
                     <div className="ml-4">
                       {R.compose(
                         RExt.mapIndex((value, index) => {
@@ -143,11 +143,11 @@ const Experience = ({ exp, isLast, isInit }) => {
             <p>{exp.roleOverview}</p>
           </div>
           {/* Bullet */}
-          <ul className="pl-4 list-disc">
+          {/* <ul className="pl-4 list-disc">
             {exp.roleBullets.map((value, index) => {
               return <li key={index}> {value}</li>;
             })}
-          </ul>
+          </ul> */}
         </TimelineContent>
       </div>
       <div className="flex">
